@@ -1,63 +1,64 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./App.css";
-
-function Calendar2024() {
+const Calendar2024 = ({}) => {
   const title = "2024";
-  const months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
 
   return (
     <div className="calendar">
       <h2>{title}</h2>
-      <div>
-        <section>
-        {months.map((month) => (
-          <Link key={month} to={`/budget/${month.toLowerCase()}`}>
-            <button>{month}</button>
-          </Link>
-        ))}
-        </section>
-      </div>
-      {/* <section>
+      <section>
         <form className="formOne">
-          <button>January</button>
-          <button>February</button>
-          <button>March</button>
-          <button>April</button>
+          <Link to="/budget/January">
+            <button>January</button>
+          </Link>
+          <Link to="/budget/February">
+            <button>February</button>
+          </Link>
+          <Link to="/budget/March">
+            <button>March</button>
+          </Link>
+          <Link to="/budget/April">
+            <button>April</button>
+          </Link>
         </form>
         <form>
-          <button>May</button>
-          <button>June</button>
-          <button>July</button>
-          <button>August</button>
+          <Link to="/budget/May">
+            <button>May</button>
+          </Link>
+          <Link to="/budget/June">
+            <button>June</button>
+          </Link>
+          <Link to="/budget/July">
+            <button>July</button>
+          </Link>
+          <Link to="/budget/August">
+            <button>August</button>
+          </Link>
         </form>
         <form>
-          <button>September</button>
-          <button>October</button>
-          <button>November</button>
+          <Link to="/budget/September">
+            <button>September</button>
+          </Link>
+          <Link to="/budget/October">
+            <button>October</button>
+          </Link>
+
+          <Link to="/budget/November">
+            <button>November</button>
+          </Link>
         </form>
         <form className="formThree">
-          <button>December</button>
+          <Link to="/budget/December">
+            <button>December</button>
+          </Link>
         </form>
-      </section> */}
+      </section>
       <footer>
         <img src="src\8.svg" />
       </footer>
     </div>
   );
-}
+};
 
 export default Calendar2024;

@@ -1,11 +1,45 @@
 import React, { useState, useEffect } from "react";
 import { MdNavigateNext } from "react-icons/md";
+import { Link } from "react-router-dom";
 import { GrFormPrevious } from "react-icons/gr";
 import "./App.css";
+import { useParams } from "react-router-dom";
 
-const MonthlyTemplate = ()=> {
-  const title = "January";
-  // State variables for expected and actual values of various income and expenses
+const MonthlyTemplate = ({}) => {
+  const { month } = useParams();
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+  ];
+
+  // Find the index of the current month
+  const monthIndex = months.indexOf(month);
+
+  // Function to handle next month
+  const handleNextMonth = () => {
+    const nextIndex = (monthIndex + 1) % months.length;
+    const nextMonth = months[nextIndex];
+    window.location.href = `/budget/${nextMonth}`;
+  };
+
+  // Function to handle previous month
+  const handlePreviousMonth = () => {
+    const previousIndex = (monthIndex - 1 + months.length) % months.length;
+    const previousMonth = months[previousIndex];
+  };
   const [job1, setJob1] = useState(0);
   //Rent
   const [rent1, setRent1] = useState(0);
@@ -116,11 +150,15 @@ const MonthlyTemplate = ()=> {
     <div className="monthlyTemplate">
       <div className="content">
         <div style={{ marginTop: 15, cursor: "pointer" }}>
-          <GrFormPrevious />
+          <Link to={`/budget/${months[monthIndex - 1]}`}>
+            <GrFormPrevious onClick={handlePreviousMonth} />
+          </Link>
         </div>
-        <h1>{title}</h1>
+        <h1>{month}</h1>
         <div style={{ marginTop: 15, cursor: "pointer" }}>
-          <MdNavigateNext />
+          <Link to={`/budget/${months[monthIndex + 1]}`}>
+            <MdNavigateNext onClick={handleNextMonth} />
+          </Link>
         </div>
       </div>
       <div className="budget">
@@ -132,7 +170,7 @@ const MonthlyTemplate = ()=> {
             <label>Job </label>
             <div>
               <input
-                type="number"
+                type="text"
                 required
                 value={job1}
                 onChange={(e) => {
@@ -149,14 +187,14 @@ const MonthlyTemplate = ()=> {
             <label>Rent/Mortgage: </label>
             <div>
               <input
-                type="number"
+                type="text"
                 required
                 value={rent1}
                 onChange={(e) => setRent1(+e.target.value)}
                 onInput={projectedExp}
               />
               <input
-                type="number"
+                type="text"
                 required
                 value={rent2}
                 onChange={(e) => setRent2(+e.target.value)}
@@ -170,14 +208,14 @@ const MonthlyTemplate = ()=> {
             <label>Furnishing/Equipment: </label>
             <div>
               <input
-                type="number"
+                type="text"
                 required
                 value={furn1}
                 onChange={(e) => setFurn1(+e.target.value)}
                 onInput={projectedExp}
               />
               <input
-                type="number"
+                type="text"
                 required
                 value={furn2}
                 onChange={(e) => setFurn2(+e.target.value)}
@@ -192,7 +230,7 @@ const MonthlyTemplate = ()=> {
             <label>Emergency Fund: </label>
             <div>
               <input
-                type="number"
+                type="text"
                 required
                 value={savings1}
                 onChange={(e) => setSavings1(+e.target.value)}
@@ -200,7 +238,7 @@ const MonthlyTemplate = ()=> {
               />
 
               <input
-                type="number"
+                type="text"
                 required
                 value={savings2}
                 onChange={(e) => setSavings2(+e.target.value)}
@@ -215,14 +253,14 @@ const MonthlyTemplate = ()=> {
             <label>Gas: </label>
             <div>
               <input
-                type="number"
+                type="text"
                 required
                 value={gas1}
                 onChange={(e) => setGas1(+e.target.value)}
                 onInput={projectedExp}
               />
               <input
-                type="number"
+                type="text"
                 required
                 value={gas2}
                 onChange={(e) => setGas2(+e.target.value)}
@@ -236,14 +274,14 @@ const MonthlyTemplate = ()=> {
             <label>Commutation: </label>
             <div>
               <input
-                type="number"
+                type="text"
                 required
                 value={comm1}
                 onChange={(e) => setComm1(+e.target.value)}
                 onInput={projectedExp}
               />
               <input
-                type="number"
+                type="text"
                 required
                 value={comm2}
                 onChange={(e) => setComm2(+e.target.value)}
@@ -258,14 +296,14 @@ const MonthlyTemplate = ()=> {
             <label>Food</label>
             <div>
               <input
-                type="number"
+                type="text"
                 required
                 value={food1}
                 onChange={(e) => setFood1(+e.target.value)}
                 onInput={projectedExp}
               />
               <input
-                type="number"
+                type="text"
                 required
                 value={food2}
                 onChange={(e) => setFood2(+e.target.value)}
@@ -279,14 +317,14 @@ const MonthlyTemplate = ()=> {
             <label>Household Supplies: </label>
             <div>
               <input
-                type="number"
+                type="text"
                 required
                 value={supplies1}
                 onChange={(e) => setSupplies1(+e.target.value)}
                 onInput={projectedExp}
               />
               <input
-                type="number"
+                type="text"
                 required
                 value={supplies2}
                 onChange={(e) => setSupplies2(+e.target.value)}
@@ -301,14 +339,14 @@ const MonthlyTemplate = ()=> {
             <label>Toilettries </label>
             <div>
               <input
-                type="number"
+                type="text"
                 required
                 value={toilletries1}
                 onChange={(e) => setToilettries1(+e.target.value)}
                 onInput={projectedExp}
               />
               <input
-                type="number"
+                type="text"
                 required
                 value={toilletries2}
                 onChange={(e) => setToilettries2(+e.target.value)}
@@ -322,14 +360,14 @@ const MonthlyTemplate = ()=> {
             <label>Beauty & Grooming</label>
             <div>
               <input
-                type="number"
+                type="text"
                 required
                 value={beauty1}
                 onChange={(e) => setBeauty1(+e.target.value)}
                 onInput={projectedExp}
               />
               <input
-                type="number"
+                type="text"
                 required
                 value={beauty2}
                 onChange={(e) => setBeauty2(+e.target.value)}
@@ -344,14 +382,14 @@ const MonthlyTemplate = ()=> {
             <label>Hobbies </label>
             <div>
               <input
-                type="number"
+                type="text"
                 required
                 value={hobbies1}
                 onChange={(e) => setHobbies1(+e.target.value)}
                 onInput={projectedExp}
               />
               <input
-                type="number"
+                type="text"
                 required
                 value={hobbies2}
                 onChange={(e) => setHobbies2(+e.target.value)}
@@ -365,14 +403,14 @@ const MonthlyTemplate = ()=> {
             <label>Streaming/Subscriptions </label>
             <div>
               <input
-                type="number"
+                type="text"
                 required
                 value={stream1}
                 onChange={(e) => setStream1(+e.target.value)}
                 onInput={projectedExp}
               />
               <input
-                type="number"
+                type="text"
                 required
                 value={stream2}
                 onChange={(e) => setStream2(+e.target.value)}
@@ -386,14 +424,14 @@ const MonthlyTemplate = ()=> {
             <label>Socialization: </label>
             <div>
               <input
-                type="number"
+                type="text"
                 required
                 value={socio1}
                 onChange={(e) => setSocio1(+e.target.value)}
                 onInput={projectedExp}
               />
               <input
-                type="number"
+                type="text"
                 required
                 value={socio2}
                 onChange={(e) => setSocio2(+e.target.value)}
@@ -408,14 +446,14 @@ const MonthlyTemplate = ()=> {
             <label>Uncategorized</label>
             <div>
               <input
-                type="number"
+                type="text"
                 required
                 value={misc1}
                 onChange={(e) => setMisc1(+e.target.value)}
                 onInput={projectedExp}
               />
               <input
-                type="number"
+                type="text"
                 required
                 value={misc2}
                 onChange={(e) => setMisc2(+e.target.value)}
@@ -456,5 +494,5 @@ const MonthlyTemplate = ()=> {
       </div>
     </div>
   );
-}
+};
 export default MonthlyTemplate;
