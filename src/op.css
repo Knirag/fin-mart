@@ -1,23 +1,38 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,600,700');
+
+
 body{
     display: flex;
     flex-direction: column;
     background: url(OPB.svg) no-repeat center fixed;
     justify-content: space-between;
-    background-size: cover;
+    background-size: 100%;
+    font-family: 'Nunito', sans-serif;
 }
 .finSmart {
+    .buttons {
+            align-self: flex-end;
+            /* Align buttons to the bottom of the container */
+        }
     button {
         padding: 10px;
         margin: 10px;
         width: 2cm;
         height: 1cm;
         background: none;
-        color: black;
+        color: white;
+        outline: none;
         border-width: thin;
+        cursor: pointer;
         font-weight: bold;
-        align-items: flex-end;
-
-    
+        margin-top: 170%;
+        border-radius: 10%;
+        border-color: cornsilk;
+        
     }
+        button:hover {
+            background-color: rgba(46, 3, 49, 0.717);
+        
+        }
 
 }

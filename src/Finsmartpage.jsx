@@ -1,11 +1,11 @@
 import React from "react";
-import "./op.css"
+import "./op.css";
 const Finsmart2024 = () => {
 return (
     <div className = "finSmart">
 <form>
-    <button>Login</button> <br/>
-    <button>Signup</button>
+    <button>LOGIN</button>
+    <button>SIGNUP</button>
 </form>
     </div>
 )
