@@ -15,7 +15,7 @@ const MonthlyTemplate = ({}) => {
     "May",
     "June",
     "April",
-    "May",
+    "May", 
     "June",
     "July",
     "August",
@@ -39,6 +39,7 @@ const MonthlyTemplate = ({}) => {
   const handlePreviousMonth = () => {
     const previousIndex = (monthIndex - 1 + months.length) % months.length;
     const previousMonth = months[previousIndex];
+    window.location.href = `/budget/${previousMonth}`;
   };
   const [job1, setJob1] = useState(0);
   //Rent

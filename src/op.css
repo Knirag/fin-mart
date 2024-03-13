@@ -1,0 +1,23 @@
+body{
+    display: flex;
+    flex-direction: column;
+    background: url(OPB.svg) no-repeat center fixed;
+    justify-content: space-between;
+    background-size: cover;
+}
+.finSmart {
+    button {
+        padding: 10px;
+        margin: 10px;
+        width: 2cm;
+        height: 1cm;
+        background: none;
+        color: black;
+        border-width: thin;
+        font-weight: bold;
+        align-items: flex-end;
+
+    
+    }
+
+}

@@ -1,5 +1,3 @@
-
-
 * {
   box-sizing: border-box;
   margin: 0px;
@@ -129,25 +127,27 @@
                   padding: 8px;
                   width: 20%;
                 }
-
+                .content {
+                  display: flex;
+                  gap: 20px;
+                  flex-direction: row;
+                  justify-content: center;
+                }
 
 }
-.content{
-  display: flex;
-  gap: 20px;
-  flex-direction:row;
-  justify-content: center;
-}
 
-body {
-  margin: 0;
-  padding: 0;
-  background-color: rgb(81, 7, 101);
-  background: url('CPB2.svg') no-repeat center fixed;  
-  background-size: cover;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-}
+
+
+
 .calendar {
+
+      margin: 0;
+      padding: 0;
+      background-color: rgb(81, 7, 101);
+      background: url('CPB2.svg') no-repeat center fixed;
+      background-size: cover;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    
    h2{
       margin-top: 2%;
       perspective: none;
