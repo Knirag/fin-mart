@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { MdNavigateNext } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { GrFormPrevious } from "react-icons/gr";
-import "./App.css";
+import "./mtp.module.css";
 import { useParams } from "react-router-dom";
 
 const MonthlyTemplate = ({}) => {
