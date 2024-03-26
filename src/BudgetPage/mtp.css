@@ -1,0 +1,99 @@
+body{
+    background: rgb(52, 5, 65);
+        background: linear-gradient(180deg, rgb(1, 173, 203) 0%, rgb(46, 6, 80) 2%, rgba(71, 9, 121, 1) 98%, rgba(222, 0, 255, 1) 100%);
+}
+.monthlyTemplate {
+        
+}
+.container-b{
+    
+
+        bottom: 0;
+            height: 100%;
+}
+    h4 {
+        color: #ffffff;
+        margin-bottom: 10px;
+        text-align: left;
+        margin-top: 20px;
+        margin-left: 30px;
+    }
+
+    h5 {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 1em;
+
+    }
+
+ 
+
+    .budget-items {
+        margin: 0;
+        margin-bottom: 5px;
+        padding-bottom: 5px;
+        border-bottom: 1px solid #931c93;
+    }
+
+    .income-field {
+        display: flex;
+        justify-content: left;
+        margin-bottom: 10px;
+        width: 20%;
+        gap: 800px;
+    }
+
+    .income-field input {
+        margin-left: 0px auto;
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid #52caef;
+        outline: none;
+    }
+
+    .income-field label {
+        margin-left: 40px;
+        border: none;
+        outline: none;
+    }
+
+    .income-field>div {
+        display: flex;
+        /* justify-content: flex-end; */
+        width: 100%;
+
+    }
+
+    table {
+        width: 70%;
+        margin: 0 auto;
+        border-collapse: collapse;
+        align-items: center;
+    }
+
+    th,
+    td {
+        border: 1px solid #f9b8f9;
+        padding: 8px;
+        width: 20%;
+    }
+
+    .content {
+        display: flex;
+        /* gap: 20px; */
+        /* flex-direction: row; */
+        justify-content: center;
+    }
+    .menu-icon{
+       display: flex;
+        width: 30px;
+        height:30px;
+    }
+
+.menu-icon:hover{
+    border: 1px solid #3bdbe6;
+    border-radius: 2px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}

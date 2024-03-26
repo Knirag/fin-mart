@@ -1,0 +1,92 @@
+.questions{
+    background: url(uqpb.svg) no-repeat center fixed;
+    background-color: rgb(46, 26, 64);
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Nunito', sans-serif;
+
+    h4{
+        font-size: 150%;
+    }
+    h5{
+        margin-bottom: 3px;
+    }
+}
+.logo {
+    width: 250px;
+    height: 250px;
+    margin-top: -40px;
+    margin-bottom: -60px;
+    z-index: 1;
+}
+
+.container-2{
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        align-items: center;
+        justify-content: center;
+        margin-top: 0px;
+        padding-bottom: 100px;
+        background: rgb(71, 9, 121);
+        background: linear-gradient(180deg, rgba(71, 9, 121, 0.5149782325039391) 0%, rgba(71, 9, 121, 0.5121771120557599) 3%, rgba(71, 9, 121, 0.5177793529521184) 97%, rgba(71, 9, 121, 0.49256926891850494) 100%);
+        border-radius: 5px;
+        width: 700px;
+        height: 210px;
+        z-index: 2;
+}
+.pages{
+    margin-top: 60px;
+}
+.expenses{
+    background: none;
+    outline:none;
+    font-weight: bold;
+    border-width: thin;
+    cursor: pointer;
+    font-size: 12px;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 80px;
+    border-color: aqua;
+}
+.expenses:hover {
+    background-color: rgba(244, 138, 252, 0.283);
+    ;
+}
+
+.pages button:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.submit{
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    background: none;
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: 1px solid #c95fe1;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.next{
+    position: absolute;
+        margin-left: 400px;
+        bottom: 10;
+        font-weight: bold;
+        margin-top: 10px;
+        background: none;
+        color: rgb(255, 255, 255);
+        font-weight: bold;
+        padding: 3px 20px;
+        border: 1px solid #f00303;
+        border-radius: 80px;
+        cursor: pointer;
+
+}

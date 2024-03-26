@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import { MdNavigateNext } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { GrFormPrevious } from "react-icons/gr";
-import "./mtp.module.css";
+import "./mtp.css";
 import { useParams } from "react-router-dom";
+import { AiOutlineBars } from "react-icons/ai";
 
 const MonthlyTemplate = ({}) => {
   const { month } = useParams();
@@ -15,14 +16,14 @@ const MonthlyTemplate = ({}) => {
     "May",
     "June",
     "April",
-    "May", 
+    "May",
     "June",
     "July",
     "August",
     "September",
     "October",
     "November",
-    "December"
+    "December",
   ];
 
   // Find the index of the current month
@@ -89,6 +90,7 @@ const MonthlyTemplate = ({}) => {
   //difference
   const [diff, setDiff] = useState(0);
 
+
   useEffect(() => {
     projectedExp();
     actualExp();
@@ -149,349 +151,352 @@ const MonthlyTemplate = ({}) => {
   }
   return (
     <div className="monthlyTemplate">
-      <div className="content">
-        <div style={{ marginTop: 15, cursor: "pointer" }}>
-          <Link to={`/budget/${months[monthIndex - 1]}`}>
-            <GrFormPrevious onClick={handlePreviousMonth} />
-          </Link>
+      <div className="container-b">
+        <div className="content">
+          <AiOutlineBars className="menu-icon" />
+          <div style={{ marginTop: 15, cursor: "pointer" }}>
+            <Link to={`/budget/${months[monthIndex - 1]}`}>
+              <GrFormPrevious onClick={handlePreviousMonth} />
+            </Link>
+          </div>
+          <h1>{month}</h1>
+          <div style={{ marginTop: 15, cursor: "pointer" }}>
+            <Link to={`/budget/${months[monthIndex + 1]}`}>
+              <MdNavigateNext onClick={handleNextMonth} />
+            </Link>
+          </div>
         </div>
-        <h1>{month}</h1>
-        <div style={{ marginTop: 15, cursor: "pointer" }}>
-          <Link to={`/budget/${months[monthIndex + 1]}`}>
-            <MdNavigateNext onClick={handleNextMonth} />
-          </Link>
-        </div>
-      </div>
-      <div className="budget">
-        <h4>Income</h4>
-        <h5>Expected</h5>
-        <h5>Actual</h5>
-        <form>
-          <div className="income-field">
-            <label>Job </label>
-            <div>
-              <input
-                type="text"
-                required
-                value={job1}
-                onChange={(e) => {
-                  setJob1(+e.target.value);
-                }}
-                onInput={difference}
-              />
-            </div>
-          </div>
-        </form>
-        <h4>Household</h4>
-        <form>
-          <div className="income-field">
-            <label>Rent/Mortgage: </label>
-            <div>
-              <input
-                type="text"
-                required
-                value={rent1}
-                onChange={(e) => setRent1(+e.target.value)}
-                onInput={projectedExp}
-              />
-              <input
-                type="text"
-                required
-                value={rent2}
-                onChange={(e) => setRent2(+e.target.value)}
-                onInput={actualExp}
-              />
-            </div>
-          </div>
-        </form>
-        <form>
-          <div className="income-field">
-            <label>Furnishing/Equipment: </label>
-            <div>
-              <input
-                type="text"
-                required
-                value={furn1}
-                onChange={(e) => setFurn1(+e.target.value)}
-                onInput={projectedExp}
-              />
-              <input
-                type="text"
-                required
-                value={furn2}
-                onChange={(e) => setFurn2(+e.target.value)}
-                onInput={actualExp}
-              />
-            </div>
-          </div>
-        </form>
-        <h4>Savings</h4>
-        <form>
-          <div className="income-field">
-            <label>Emergency Fund: </label>
-            <div>
-              <input
-                type="text"
-                required
-                value={savings1}
-                onChange={(e) => setSavings1(+e.target.value)}
-                onInput={projectedExp}
-              />
+        <div className="budget">
+          <h4>Income</h4>
+          <h5>Expected Actual</h5>
 
-              <input
-                type="text"
-                required
-                value={savings2}
-                onChange={(e) => setSavings2(+e.target.value)}
-                onInput={actualExp}
-              />
+          <form className="budget-items">
+            <div className="income-field">
+              <label>Job </label>
+              <div className="amount">
+                <input
+                  type="text"
+                  required
+                  value={job1}
+                  onChange={(e) => {
+                    setJob1(+e.target.value);
+                  }}
+                  onInput={difference}
+                />
+              </div>
             </div>
-          </div>
-        </form>
-        <h4>Transport</h4>
-        <form>
-          <div className="income-field">
-            <label>Gas: </label>
-            <div>
-              <input
-                type="text"
-                required
-                value={gas1}
-                onChange={(e) => setGas1(+e.target.value)}
-                onInput={projectedExp}
-              />
-              <input
-                type="text"
-                required
-                value={gas2}
-                onChange={(e) => setGas2(+e.target.value)}
-                onInput={actualExp}
-              />
+          </form>
+          <h4>Household</h4>
+          <form className="budget-items">
+            <div className="income-field">
+              <label>Rent/Mortgage: </label>
+              <div className="amount">
+                <input
+                  type="text"
+                  required
+                  value={rent1}
+                  onChange={(e) => setRent1(+e.target.value)}
+                  onInput={projectedExp}
+                />
+                <input
+                  type="text"
+                  required
+                  value={rent2}
+                  onChange={(e) => setRent2(+e.target.value)}
+                  onInput={actualExp}
+                />
+              </div>
             </div>
-          </div>
-        </form>
-        <form>
-          <div className="income-field">
-            <label>Commutation: </label>
-            <div>
-              <input
-                type="text"
-                required
-                value={comm1}
-                onChange={(e) => setComm1(+e.target.value)}
-                onInput={projectedExp}
-              />
-              <input
-                type="text"
-                required
-                value={comm2}
-                onChange={(e) => setComm2(+e.target.value)}
-                onInput={actualExp}
-              />
+          </form>
+          <form className="budget-items">
+            <div className="income-field">
+              <label>Furnishing/Equipment: </label>
+              <div className="amount">
+                <input
+                  type="text"
+                  required
+                  value={furn1}
+                  onChange={(e) => setFurn1(+e.target.value)}
+                  onInput={projectedExp}
+                />
+                <input
+                  type="text"
+                  required
+                  value={furn2}
+                  onChange={(e) => setFurn2(+e.target.value)}
+                  onInput={actualExp}
+                />
+              </div>
             </div>
-          </div>
-        </form>
-        <h4>Groceries:</h4>
-        <form>
-          <div className="income-field">
-            <label>Food</label>
-            <div>
-              <input
-                type="text"
-                required
-                value={food1}
-                onChange={(e) => setFood1(+e.target.value)}
-                onInput={projectedExp}
-              />
-              <input
-                type="text"
-                required
-                value={food2}
-                onChange={(e) => setFood2(+e.target.value)}
-                onInput={actualExp}
-              />
+          </form>
+          <h4>Savings</h4>
+          <form className="budget-items">
+            <div className="income-field">
+              <label>Emergency Fund: </label>
+              <div className="amount">
+                <input
+                  type="text"
+                  required
+                  value={savings1}
+                  onChange={(e) => setSavings1(+e.target.value)}
+                  onInput={projectedExp}
+                />
+
+                <input
+                  type="text"
+                  required
+                  value={savings2}
+                  onChange={(e) => setSavings2(+e.target.value)}
+                  onInput={actualExp}
+                />
+              </div>
             </div>
-          </div>
-        </form>
-        <form>
-          <div className="income-field">
-            <label>Household Supplies: </label>
-            <div>
-              <input
-                type="text"
-                required
-                value={supplies1}
-                onChange={(e) => setSupplies1(+e.target.value)}
-                onInput={projectedExp}
-              />
-              <input
-                type="text"
-                required
-                value={supplies2}
-                onChange={(e) => setSupplies2(+e.target.value)}
-                onInput={actualExp}
-              />
+          </form>
+          <h4>Transport</h4>
+          <form className="budget-items">
+            <div className="income-field">
+              <label>Gas: </label>
+              <div className="amount">
+                <input
+                  type="text"
+                  required
+                  value={gas1}
+                  onChange={(e) => setGas1(+e.target.value)}
+                  onInput={projectedExp}
+                />
+                <input
+                  type="text"
+                  required
+                  value={gas2}
+                  onChange={(e) => setGas2(+e.target.value)}
+                  onInput={actualExp}
+                />
+              </div>
             </div>
-          </div>
-        </form>
-        <form>
-          <h4>Personal Care</h4>
-          <div className="income-field">
-            <label>Toilettries </label>
-            <div>
-              <input
-                type="text"
-                required
-                value={toilletries1}
-                onChange={(e) => setToilettries1(+e.target.value)}
-                onInput={projectedExp}
-              />
-              <input
-                type="text"
-                required
-                value={toilletries2}
-                onChange={(e) => setToilettries2(+e.target.value)}
-                onInput={actualExp}
-              />
+          </form>
+          <form className="budget-items">
+            <div className="income-field">
+              <label>Commutation: </label>
+              <div className="amount">
+                <input
+                  type="text"
+                  required
+                  value={comm1}
+                  onChange={(e) => setComm1(+e.target.value)}
+                  onInput={projectedExp}
+                />
+                <input
+                  type="text"
+                  required
+                  value={comm2}
+                  onChange={(e) => setComm2(+e.target.value)}
+                  onInput={actualExp}
+                />
+              </div>
             </div>
-          </div>
-        </form>
-        <form>
-          <div className="income-field">
-            <label>Beauty & Grooming</label>
-            <div>
-              <input
-                type="text"
-                required
-                value={beauty1}
-                onChange={(e) => setBeauty1(+e.target.value)}
-                onInput={projectedExp}
-              />
-              <input
-                type="text"
-                required
-                value={beauty2}
-                onChange={(e) => setBeauty2(+e.target.value)}
-                onInput={actualExp}
-              />
+          </form>
+          <h4>Groceries:</h4>
+          <form className="budget-items">
+            <div className="income-field">
+              <label>Food</label>
+              <div className="amount">
+                <input
+                  type="text"
+                  required
+                  value={food1}
+                  onChange={(e) => setFood1(+e.target.value)}
+                  onInput={projectedExp}
+                />
+                <input
+                  type="text"
+                  required
+                  value={food2}
+                  onChange={(e) => setFood2(+e.target.value)}
+                  onInput={actualExp}
+                />
+              </div>
             </div>
-          </div>
-        </form>
-        <form>
-          <h4>Entertainment</h4>
-          <div className="income-field">
-            <label>Hobbies </label>
-            <div>
-              <input
-                type="text"
-                required
-                value={hobbies1}
-                onChange={(e) => setHobbies1(+e.target.value)}
-                onInput={projectedExp}
-              />
-              <input
-                type="text"
-                required
-                value={hobbies2}
-                onChange={(e) => setHobbies2(+e.target.value)}
-                onInput={actualExp}
-              />
+          </form>
+          <form className="budget-items">
+            <div className="income-field">
+              <label>Household Supplies: </label>
+              <div className="amount">
+                <input
+                  type="text"
+                  required
+                  value={supplies1}
+                  onChange={(e) => setSupplies1(+e.target.value)}
+                  onInput={projectedExp}
+                />
+                <input
+                  type="text"
+                  required
+                  value={supplies2}
+                  onChange={(e) => setSupplies2(+e.target.value)}
+                  onInput={actualExp}
+                />
+              </div>
             </div>
-          </div>
-        </form>
-        <form>
-          <div className="income-field">
-            <label>Streaming/Subscriptions </label>
-            <div>
-              <input
-                type="text"
-                required
-                value={stream1}
-                onChange={(e) => setStream1(+e.target.value)}
-                onInput={projectedExp}
-              />
-              <input
-                type="text"
-                required
-                value={stream2}
-                onChange={(e) => setStream2(+e.target.value)}
-                onInput={actualExp}
-              />
+          </form>
+          <form className="budget-items">
+            <h4>Personal Care</h4>
+            <div className="income-field">
+              <label>Toilettries </label>
+              <div className="amount">
+                <input
+                  type="text"
+                  required
+                  value={toilletries1}
+                  onChange={(e) => setToilettries1(+e.target.value)}
+                  onInput={projectedExp}
+                />
+                <input
+                  type="text"
+                  required
+                  value={toilletries2}
+                  onChange={(e) => setToilettries2(+e.target.value)}
+                  onInput={actualExp}
+                />
+              </div>
             </div>
-          </div>
-        </form>
-        <form>
-          <div className="income-field">
-            <label>Socialization: </label>
-            <div>
-              <input
-                type="text"
-                required
-                value={socio1}
-                onChange={(e) => setSocio1(+e.target.value)}
-                onInput={projectedExp}
-              />
-              <input
-                type="text"
-                required
-                value={socio2}
-                onChange={(e) => setSocio2(+e.target.value)}
-                onInput={actualExp}
-              />
+          </form>
+          <form className="budget-items">
+            <div className="income-field">
+              <label>Beauty & Grooming</label>
+              <div className="amount">
+                <input
+                  type="text"
+                  required
+                  value={beauty1}
+                  onChange={(e) => setBeauty1(+e.target.value)}
+                  onInput={projectedExp}
+                />
+                <input
+                  type="text"
+                  required
+                  value={beauty2}
+                  onChange={(e) => setBeauty2(+e.target.value)}
+                  onInput={actualExp}
+                />
+              </div>
             </div>
-          </div>
-        </form>
-        <form>
-          <h4>Miscelleneous</h4>
-          <div className="income-field">
-            <label>Uncategorized</label>
-            <div>
-              <input
-                type="text"
-                required
-                value={misc1}
-                onChange={(e) => setMisc1(+e.target.value)}
-                onInput={projectedExp}
-              />
-              <input
-                type="text"
-                required
-                value={misc2}
-                onChange={(e) => setMisc2(+e.target.value)}
-                onInput={actualExp}
-              />
+          </form>
+          <form className="budget-items">
+            <h4>Entertainment</h4>
+            <div className="income-field">
+              <label>Hobbies </label>
+              <div className="amount">
+                <input
+                  type="text"
+                  required
+                  value={hobbies1}
+                  onChange={(e) => setHobbies1(+e.target.value)}
+                  onInput={projectedExp}
+                />
+                <input
+                  type="text"
+                  required
+                  value={hobbies2}
+                  onChange={(e) => setHobbies2(+e.target.value)}
+                  onInput={actualExp}
+                />
+              </div>
             </div>
-          </div>
-        </form>
-        <table>
-          <thead></thead>
-          <tbody>
-            <tr>
-              <td>
-                <h5>Projected Balance</h5>
-              </td>
-              <td>
-                <p>{proj}</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <h5>Actual Balance</h5>
-              </td>
-              <td>
-                <p>{actual}</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <h5>Difference</h5>
-              </td>
-              <td>
-                <p>{diff}</p>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+          </form>
+          <form className="budget-items">
+            <div className="income-field">
+              <label>Streaming/Subscriptions </label>
+              <div className="amount">
+                <input
+                  type="text"
+                  required
+                  value={stream1}
+                  onChange={(e) => setStream1(+e.target.value)}
+                  onInput={projectedExp}
+                />
+                <input
+                  type="text"
+                  required
+                  value={stream2}
+                  onChange={(e) => setStream2(+e.target.value)}
+                  onInput={actualExp}
+                />
+              </div>
+            </div>
+          </form>
+          <form className="budget-items">
+            <div className="income-field">
+              <label>Socialization: </label>
+              <div className="amount">
+                <input
+                  type="text"
+                  required
+                  value={socio1}
+                  onChange={(e) => setSocio1(+e.target.value)}
+                  onInput={projectedExp}
+                />
+                <input
+                  type="text"
+                  required
+                  value={socio2}
+                  onChange={(e) => setSocio2(+e.target.value)}
+                  onInput={actualExp}
+                />
+              </div>
+            </div>
+          </form>
+          <form className="budget-items">
+            <h4>Miscelleneous</h4>
+            <div className="income-field">
+              <label>Uncategorized</label>
+              <div className="amount">
+                <input
+                  type="text"
+                  required
+                  value={misc1}
+                  onChange={(e) => setMisc1(+e.target.value)}
+                  onInput={projectedExp}
+                />
+                <input
+                  type="text"
+                  required
+                  value={misc2}
+                  onChange={(e) => setMisc2(+e.target.value)}
+                  onInput={actualExp}
+                />
+              </div>
+            </div>
+          </form>
+          <table>
+            <thead></thead>
+            <tbody>
+              <tr>
+                <td>
+                  <h5>Projected Balance</h5>
+                </td>
+                <td>
+                  <p>{proj}</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h5>Actual Balance</h5>
+                </td>
+                <td>
+                  <p>{actual}</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h5>Difference</h5>
+                </td>
+                <td>
+                  <p>{diff}</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );

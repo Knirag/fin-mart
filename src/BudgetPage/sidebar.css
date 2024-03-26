@@ -1,0 +1,49 @@
+
+.menu{
+    height: 700px;
+    width: 250px;
+    background-color: rgb(46, 26, 64);
+    position: fixed;
+    top: 0;
+    left: 0;
+    float: left;
+    font-family: 'Nunito', sans-serif;
+    
+    li{
+        z-index: 2;
+    margin-top: -10px;
+    justify-content: center;
+}
+    a{
+        font-size: 20px;
+    }
+    .gox-icon{
+        float: right;
+        width: 50px;
+        height: 30px;
+        z-index: 2;
+    }
+}
+
+.dash{
+    width: 250px;
+    margin-top:3.5px;
+    height:0.1px;
+    background-color:rgb(66, 19, 114);
+}
+.logo-2 {
+        width: 250px;
+        height: 250px;
+        margin-top: -89px;
+        margin-bottom: -55px;
+        z-index: 1;
+    }
+ .menu-items {
+     text-decoration: none;
+     cursor:pointer;
+ }
+  .menu-items:hover {
+    font-weight: bold;
+    text-shadow: 0px 0px 2px rgba(74, 205, 241, 0.3);
+    transition: color 0.2s ease-in-out;
+  }

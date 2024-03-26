@@ -55,7 +55,7 @@ const Calendar2024 = ({}) => {
         </form>
       </section>
       <footer>
-        <img src="src\8.svg" />
+        <img src="./images/8.svg" />
       </footer>
     </div>
   );

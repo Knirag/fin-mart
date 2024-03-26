@@ -17,8 +17,10 @@
     "@material-table/core": "^6.3.2",
     "@mui/icons-material": "^5.15.11",
     "@mui/material": "^5.15.11",
+    "firebase": "^10.9.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-firebase-auth": "^1.0.3",
     "react-icons": "^5.0.1"
   },
   "devDependencies": {
